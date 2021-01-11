@@ -1,7 +1,7 @@
 window.onload = function() {
     console.log('hello world'); 
 
-    // Mario Kart Exo 
+    // Mario Kart Exo
     function Pilote(name) {
         let prevState = undefined;
         let state = {

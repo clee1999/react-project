@@ -1,0 +1,1 @@
+// call du router, component, reactdom

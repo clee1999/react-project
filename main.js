@@ -28,9 +28,47 @@ let React = {
   },
 }
 
+class Component {
+  constructor(props) {
+    this.props = props
+  }
+  //  this.getState = () => state.state
+
+  display(props) {
+    //...
+    return this.render()
+  }
+  render() {}
+}
+
+class HelloWorld extends Component {
+  propTypes = {
+    name: { type: 'string', enum: ['world', 'you', 'me'] },
+  }
+
+  render() {
+    return React.createElement('div', { toWhat: { name: this.props.name } }, [
+      'Hello {{toWhat.name}}',
+    ])
+  }
+}
+
+// class Component {
+//   state = {};
+//   constructor(props) {
+//     this.props = props;
+//   }
+//   display(props) {
+//     //...
+//     return this.render();
+//   }
+//   render() {}
+// }
+
 ReactDOM.render(
   React.createElement('div', { toWhat: { name: 'World' } }, [
     'Hello {{toWhat.name}}',
   ]),
+  // React.createElement(HelloWorld, { name: 'world' }),
   document.getElementById('root')
 )

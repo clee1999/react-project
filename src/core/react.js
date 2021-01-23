@@ -1,4 +1,4 @@
-import { type_check_v1, type_check_v2 } from '../../functions/type_check'
+import { type_check_v1, type_check_v2 } from '../../functions/type_check.js'
 
 //TODO: create type_check function
 //TODO: fix create display function ?

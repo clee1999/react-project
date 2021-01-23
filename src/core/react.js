@@ -1,7 +1,7 @@
 //TODO: create type_check function
-//TODO: create display function
+//TODO: fix create display function ?
 //TODO: create shouldUpdate function
-//TODO: class Componenet
+//TODO: fix class Componenet
 
 let ReactDOM = {
   render(rElement, hElement) {
@@ -75,31 +75,22 @@ export class Component {
   }
 }
 
-class HelloWorld extends Component {
-  propTypes = {
-    name: { type: 'string', enum: ['world', 'you', 'me'] },
-  }
+// class HelloWorld extends Component {
+//   propTypes = {
+//     name: { type: 'string', enum: ['world', 'you', 'me'] },
+//   }
 
-  render() {
-    return React.createElement('div', { toWhat: { name: this.props.name } }, [
-      'Hello {{toWhat.name}}',
-    ])
-  }
-}
+//   render() {
+//     return React.createElement('div', { toWhat: { name: this.props.name } }, [
+//       'Hello {{toWhat.name}}',
+//     ])
+//   }
+// }
 
 ReactDOM.render(
-  //this is how to render element on React
-  //ReactDOM.render(
-  //    React.createElement("div", {toWhat: 'monde'}, null),
-  //    document.getElementById('root')
-  //  );
-  // React.createElement('div', {}, [
-  //   React.createElement('div', { test: 'test' }, ['Coucou {{test}}']),
-  // ]),
   React.createElement('div', { toWhat: { name: 'World' } }, [
     'Hello {{toWhat.name}}',
   ]),
-  React.createElement(HelloWorld, { name: 'world' }),
-
+  // React.createElement(HelloWorld, { name: 'world' }),
   document.getElementById('root')
 )

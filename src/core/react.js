@@ -1,4 +1,4 @@
-import { type_check_v1, type_check_v2 } from '../../functions/auth'
+import { type_check_v1, type_check_v2 } from '../../functions/type_check'
 
 //TODO: create type_check function
 //TODO: fix create display function ?
@@ -15,12 +15,12 @@ let ReactDOM = {
 // children : ["Hello {{toWhat.name}}"]
 //subElement : Hello {{toWhat.name}}
 // PAR RAPPORT A CA ==>
-ReactDOM.render(
-  React.createElement('div', { toWhat: { name: 'HelloWorld' } }, [
-    'Hello {{toWhat.name}}',
-  ]),
-  document.getElementById('root')
-)
+// ReactDOM.render(
+//   React.createElement('div', { toWhat: { name: 'HelloWorld' } }, [
+//     'Hello {{toWhat.name}}',
+//   ]),
+//   document.getElementById('root')
+// )
 
 let React = {
   createElement(tagOrComponent, props, children) {

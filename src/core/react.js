@@ -1,3 +1,5 @@
+import { type_check_v1, type_check_v2 } from '../../functions/auth'
+
 //TODO: create type_check function
 //TODO: fix create display function ?
 //TODO: create shouldUpdate function
@@ -8,6 +10,17 @@ let ReactDOM = {
     hElement.appendChild(rElement)
   },
 }
+// tagOrComponent : div ==> string
+//props : {"toWhat":{"name":"World"}}
+// children : ["Hello {{toWhat.name}}"]
+//subElement : Hello {{toWhat.name}}
+// PAR RAPPORT A CA ==>
+ReactDOM.render(
+  React.createElement('div', { toWhat: { name: 'HelloWorld' } }, [
+    'Hello {{toWhat.name}}',
+  ]),
+  document.getElementById('root')
+)
 
 let React = {
   createElement(tagOrComponent, props, children) {
@@ -16,12 +29,14 @@ let React = {
       element = document.createElement(tagOrComponent)
       for (let attribute in props) {
         element.setAttribute(attribute, props[attribute])
+        // console.log(JSON.stringify(props))
       }
       for (let subElement of children) {
         if (typeof subElement === 'string')
           subElement = document.createTextNode(
             subElement /**.interpolate(props) */
           )
+        // console.log(subElement)
         element.appendChild(subElement)
       }
     } /** component **/ else {

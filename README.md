@@ -1,5 +1,8 @@
-Pour lancer le projet :
-node server.js
+## Pour lancer le projet :
+
+`python3 -m http.server 7800`
+
+Go to `http://127.0.0.1:7800/public/`
 
 Obligations
 Norme Javascript: ES6/ES2015 Notions présentes:
@@ -19,7 +22,7 @@ Norme Javascript: ES6/ES2015 Notions présentes:
 - version minimum: 3
 - exemples cas d'utilisation: Vérifier les données en entrée de constructeur
 
-1. Créer un mini-react
+## 1. Créer un mini-react
 
 - Gestion du routage
 - Validation des propriétés passées au composant
@@ -31,6 +34,7 @@ Norme Javascript: ES6/ES2015 Notions présentes:
 - si `render` invoque d'autres composants, le composant courant appelle la fonction `display (compProps)` des sous-composants
 - le résultat de `display` est ajouté au DOM sous le noeud parent
 
-2. Créer un mini site de démo (2/3 pages)
-   Utilisation du routing et du mini-react
-   Un minimum de design
+## 2. Créer un mini site de démo (2/3 pages)
+
+Utilisation du routing et du mini-react
+Un minimum de design

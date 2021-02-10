@@ -2,7 +2,7 @@ import { type_check } from "../core/utils.js";
 import { MiniReact } from "../core/mini-react.js"
 import {Component} from "../core/component";
 
-export class ContactsComponent extends Component {
+export class HomepageComponent extends Component {
     constructor(props) {
         super(props);
         // utilisation du typecheck pour vérifier si les props sont les bonnes
@@ -14,7 +14,7 @@ export class ContactsComponent extends Component {
         const affichage = MiniReact.createElement(
             "div",
             { class: "container text-center" },
-            "Une page contact...",
+            "Une page homepage...",
 
         );
         return affichage;

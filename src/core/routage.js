@@ -15,11 +15,12 @@ export class Routage {
 
   }
 
-  // Classe route ; qui sera déclarée dans mon routeur avec un nom et un chemin
+  // Classe route ; qui sera déclarée dans mon routeur avec un nom et un chemin, id et classname
   export class Route {
-    constructor(name, path) {
+    constructor(name, id, path) {
       this.name = name;
       this.path = path;
+        this.id = id;
     }
   
     getName = () => {
@@ -29,5 +30,9 @@ export class Routage {
     getPath = () => {
       return this.path;
     };
+
+      getId = () => {
+          return this.id;
+      };
 
   }

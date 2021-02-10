@@ -36,7 +36,7 @@ export class HeaderComponent extends Component {
                         href: "." + routeHomepage.getPath(),
                         style:
                             this.selectedLink === routeHomepage.getPath()
-                                ? "text-decoration: underline"
+                                ? "color : blue"
                                 : ""
                     },
                     routeHomepage.getName()
@@ -49,7 +49,7 @@ export class HeaderComponent extends Component {
                         href: "." + routeContacts.getPath(),
                         style:
                             this.selectedLink === routeContacts.getPath()
-                                ? "text-decoration: underline"
+                                ? "color : blue"
                                 : ""
                     },
                     routeContacts.getName()

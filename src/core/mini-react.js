@@ -41,19 +41,17 @@ let React = {
 }
 
 
-// permet de représenter un nombre indéfini d'arguments sous forme d'array
+
 export const createElement = (tagOrComponent, props, children) => {
     return createElement(tagOrComponent, props, children);
 };
 
 
-// ça Permet d'exposer la classe
 export const MiniReact = {
     createElement,
     Component
 };
 
-//  elel expose la méthode render
 export const MiniReactDOM = {
     render: (element, domElement, props) => {
         domElement.appendChild(element);

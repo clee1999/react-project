@@ -1,17 +1,3 @@
-// fonction prop_access
-function prop_access(obj, path) {
-    if(typeof(obj) !== "object" || obj === null ) {
-        return path + " not exist";
-    }
-    if (typeof path != "string" ||  path === "") {
-        return obj;
-    }
-    let err = '';
-    path.split('.').map(chld => typeof obj[chld] === 'null' && err === 'null' ? err = path.split(chld)[0] + chld + "no exist " : obj = obj[chld]);
-    return obj;
-
-}
-
 // function TypeCheck v1
 // verif si arg correspong à arg2
 function type_check_v1(variable, type) {
@@ -38,6 +24,8 @@ function type_check_v1(variable, type) {
 
 // function TypeCheck v2
 function type_check_v2(variable, conf) {
+    let subValue
+    let key
     for (key of conf) {
         switch (key) {
             case "type":
@@ -46,13 +34,15 @@ function type_check_v2(variable, conf) {
             case "value":
                 if (JSON.stringify(variable) !== JSON.stringify(conf.value)) return false;
                 break;
-            case "enum":
-                let valid = false;
-                for (let value of conf.enum) {
-                    valid = type_check_v2(variable, { value });
-                    if (valid) break;
+            case 'enum':
+                enum_loop: {
+                    for (subValue of conf.enum) {
+                        if (type_check_v2(variable, { value: subValue })) {
+                            break enum_loop
+                        }
+                    }
+                    return false
                 }
-                if (!valid) return false;
         }
     }
 
@@ -63,21 +53,21 @@ function type_check_v2(variable, conf) {
 export function type_check(variable, conf) {
     for (key of conf) {
         switch (key) {
-            case "type":
+            case "props":
+                for (prop of conf) {
+                    if (variable[prop] === undefined)
+                        throw new Error("Type properties erreur");
+                    if (!type_check(variable[prop], conf.props[prop]))
+                        throw new Error("Type properties erreur");
+                }
+                break;
             case "value":
+            case "type":
             case "enum":
                 let newConf = {};
                 newConf.enum = conf.enum;
                 if (!type_check_v2(variable, newConf))
                     throw new Error("Type properties erreur");
-                break;
-            case "properties":
-                for (prop of conf) {
-                    if (variable[prop] === undefined)
-                        throw new Error("Type properties erreur");
-                    if (!type_check(variable[prop], conf.properties[prop]))
-                        throw new Error("Type properties erreur");
-                }
                 break;
         }
     }
@@ -85,3 +75,16 @@ export function type_check(variable, conf) {
     return true;
 }
 
+// fonction prop_access
+function prop_access(obj, path) {
+    if(typeof(obj) !== "object" || obj === null ) {
+        return path + " not exist";
+    }
+    if (typeof path != "string" ||  path === "") {
+        return obj;
+    }
+    let err = '';
+    path.split('.').map(chld => typeof obj[chld] === 'null' && err === 'null' ? err = path.split(chld)[0] + chld + "no exist " : obj = obj[chld]);
+    return obj;
+
+}

@@ -5,7 +5,6 @@ import {Component} from "../core/component";
 export class HeaderComponent extends Component {
     constructor(props) {
         super(props);
-        this.headerTitle = " TITRE SUR LE HEADER ";
         this.routes = prop_access(props.router, "routes"); //  accès à mon routage ^^
         this.selectedLink = window.location.pathname; // permet d'obtenir the current route
     }
@@ -25,7 +24,7 @@ export class HeaderComponent extends Component {
         const affichge = MiniReact.createElement(
             "header",
             { class: "container text-center" },
-            MiniReact.createElement("h1", null, `${this.headerTitle}`),
+            MiniReact.createElement("h1", null, "Yolo titre header"),
             MiniReact.createElement(
                 "nav",
                 null,

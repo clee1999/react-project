@@ -2,7 +2,7 @@
 
 `python3 -m http.server 7800`
 
-Go to `http://127.0.0.1:7800/public/`
+Go to `http://127.0.0.1:7800/`
 
 Obligations
 Norme Javascript: ES6/ES2015 Notions présentes:

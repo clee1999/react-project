@@ -4,19 +4,19 @@
 // Des propriétés, un statut vide pour l'instant, un previous status et un previous render
 export class Component {
     constructor(props) {
-        this.props = props;
-        this.state = {};
-        this.prevState;
-        this.prevRender = null;
-    }
-// setter status qui comporte un previous status, le statut qui va devenir le nouveau statut puis ensuite va faire apparaitre tout ça
+            this.props = props;
+            this.state = {};
+            this.prevState;
+            this.prevRender = null;
+        }
+        // setter status qui comporte un previous status, le statut qui va devenir le nouveau statut puis ensuite va faire apparaitre tout ça
     setState = newState => {
         this.prevState = this.state;
         this.state = newState;
         this.display();
     };
 
-// get le status
+    // get le status
     getState = () => {
         return this.state;
     };
@@ -43,4 +43,10 @@ export class Component {
         }
     };
 
+    render = () => {
+        let elementHTML = document.createElement('test');
+        elementHTML.setAttribute('test', 'heeeooooo');
+
+
+    }
 }
